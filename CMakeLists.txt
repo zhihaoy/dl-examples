@@ -18,3 +18,4 @@ else()
 endif()
 
 add_subdirectory("repromath")
+add_subdirectory("apidemo")

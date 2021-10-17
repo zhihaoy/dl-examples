@@ -1,6 +1,6 @@
 ﻿include(GenerateExportHeader)
 
-add_library(repromath MODULE)
+add_library(repromath SHARED)
 target_sources(repromath
     PRIVATE "repromath.cpp"
     PUBLIC "repromath.h"
@@ -8,5 +8,6 @@ target_sources(repromath
 )
 set_target_properties(repromath PROPERTIES CXX_VISIBILITY_PRESET hidden)
 target_include_directories(repromath
-    PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
+    PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+)
 generate_export_header(repromath)
