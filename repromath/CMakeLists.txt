@@ -1,6 +1,6 @@
 ﻿include(GenerateExportHeader)
 
-add_library(repromath SHARED)
+add_library(repromath MODULE)
 target_sources(repromath
     PRIVATE "repromath.cpp"
     PUBLIC "repromath.h"

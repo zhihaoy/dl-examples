@@ -19,3 +19,4 @@ endif()
 
 add_subdirectory("repromath")
 add_subdirectory("apidemo")
+add_subdirectory("pyapidemo")
