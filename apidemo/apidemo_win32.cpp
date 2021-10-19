@@ -15,16 +15,16 @@ int main()
 {
     double x[] = {1., 2., 3.};
     double y[] = {4., -5., 6.};
-    auto handle = ::LoadLibraryW(L"repromath.dll");
+    auto lib = ::LoadLibraryW(L"repromath.dll");
     // error handling
-    if (handle == INVALID_HANDLE_VALUE)
+    if (lib == INVALID_HANDLE_VALUE)
     {
         perr<GetLastError>("main", stderr);
         return 1;
     }
     typedef auto ddot_t(int, double const *, double const *) -> double;
-    auto ddot = (ddot_t *)::GetProcAddress(handle, "?ddot@repromath@@YANHPEBN0@Z");
+    auto ddot = (ddot_t *)::GetProcAddress(lib, "?ddot@repromath@@YANHPEBN0@Z");
 
     printf("result = %g\n", ddot(3, x, y));
-    ::FreeLibrary(handle);
+    ::FreeLibrary(lib);
 }
