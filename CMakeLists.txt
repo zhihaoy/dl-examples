@@ -1,6 +1,11 @@
 ﻿cmake_minimum_required(VERSION 3.15)
 
-project("dl-examples" LANGUAGES CXX)
+project("dl-examples" NONE)
+if(WIN32)
+    enable_language(CXX)
+else()
+    enable_language(CXX C ASM)
+endif()
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED YES)
@@ -18,5 +23,7 @@ else()
 endif()
 
 add_subdirectory("repromath")
+add_subdirectory("lazyrepromath")
+add_subdirectory("lazydemo")
 add_subdirectory("apidemo")
 add_subdirectory("pyapidemo")

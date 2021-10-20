@@ -18,7 +18,7 @@
       "buildRoot": "${projectDir}\\out\\build\\${name}",
       "installRoot": "${projectDir}\\out\\install\\${name}",
       "cmakeExecutable": "cmake",
-      "cmakeCommandArgs": "",
+      "cmakeCommandArgs": "-DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang",
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
       "inheritEnvironments": [ "linux_clang_x64" ],
