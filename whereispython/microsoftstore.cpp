@@ -1,6 +1,6 @@
 #include "whereispython.h"
 
-#pragma comment(linker, "/export:factory=?instance@@3Vmicrosoftstore_factory@whereispython@@A")
+#pragma comment(linker, "/export:instance=?instance@@3Vmicrosoftstore_factory@whereispython@@A")
 
 namespace whereispython
 {
@@ -8,7 +8,7 @@ namespace whereispython
 class microsoftstore : public installation
 {
   public:
-    explicit microsoftstore(wchar_t const *version)
+    explicit microsoftstore(char const *version)
     {
     }
 
@@ -26,7 +26,7 @@ class microsoftstore : public installation
 class microsoftstore_factory : public factory
 {
   public:
-    virtual auto operator[](wchar_t const *version) -> std::unique_ptr<installation>
+    virtual auto lookup(char const *version) -> std::unique_ptr<installation>
     {
         return std::make_unique<microsoftstore>(version);
     }

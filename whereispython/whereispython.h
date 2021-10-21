@@ -17,7 +17,7 @@ class installation
 class factory
 {
   public:
-    virtual auto operator[](wchar_t const *ver) -> std::unique_ptr<installation> = 0;
+    virtual auto lookup(char const *ver) -> std::unique_ptr<installation> = 0;
 };
 
 }

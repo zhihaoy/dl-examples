@@ -1,5 +1,8 @@
 add_library(whereispython INTERFACE)
 target_sources(whereispython INTERFACE "whereispython.h")
+target_include_directories(whereispython
+    INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+)
 
 add_library(fullinstaller MODULE)
 target_sources(fullinstaller
