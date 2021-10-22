@@ -16,4 +16,7 @@ add_library(microsoftstore MODULE)
 target_sources(microsoftstore
     PRIVATE "microsoftstore.cpp"
 )
-target_compile_options(microsoftstore PRIVATE "/clr")
+target_compile_options(microsoftstore PRIVATE
+    "/clr"
+    "/AI${CMAKE_CURRENT_SOURCE_DIR}/appx/packages/Microsoft.PowerShell.5.1.ReferenceAssemblies.1.0.0/lib/net461"
+)

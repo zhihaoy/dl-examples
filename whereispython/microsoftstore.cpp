@@ -1,5 +1,15 @@
 #include "whereispython.h"
 
+#include <vcclr.h>
+// clang-format off
+#using <mscorlib.dll>
+#using <System.dll>
+#using <System.Management.Automation.dll>
+// clang-format on
+
+using namespace System;
+using namespace System::Management::Automation;
+
 #pragma comment(linker, "/export:instance=?instance@@3Vmicrosoftstore_factory@whereispython@@A")
 
 namespace whereispython
