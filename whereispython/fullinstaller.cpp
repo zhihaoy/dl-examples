@@ -34,7 +34,7 @@ class fullinstaller : public installation
         : hkey_([=] {
               wchar_t key_name[48];
               if (swprintf_s(key_name, LR"(SOFTWARE\Python\PythonCore\%S\InstallPath)", version) == -1)
-                  throw std::invalid_argument("Python version");
+                  throw std::invalid_argument{"Python version"};
 
               return transfer_registry_key(open_registry_key(key_name));
           }())
