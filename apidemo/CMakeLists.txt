@@ -1,7 +1,6 @@
 add_executable(apidemo)
 target_sources(apidemo PRIVATE
-    "$<$<PLATFORM_ID:Windows>:apidemo_win32.cpp>"
-    "$<$<NOT:$<PLATFORM_ID:Windows>>:apidemo_posix.cpp>"
+    "apidemo_$<IF:$<PLATFORM_ID:Windows>,win32,posix>.cpp"
 )
 target_include_directories(apidemo 
     PRIVATE
