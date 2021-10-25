@@ -17,15 +17,17 @@ int main()
     auto load = [] { return tlsdemo::plugin<tslogger::singleton>(std::filesystem::current_path() / libname); };
     auto inst = load();
 
-    std::thread th[] = {std::thread([&] {
-                            inst->get();
-                            std::this_thread::sleep_for(1s);
-                        }),
-                        std::thread([&] {
-                            std::this_thread::sleep_for(200ms);
-                            inst->get();
-                            inst.unload();
-                        })};
+    std::thread th[] = {
+        std::thread([&] {
+            inst->get();
+            std::this_thread::sleep_for(1s);
+        }),
+        std::thread([&] {
+            std::this_thread::sleep_for(200ms);
+            inst->get();
+            inst.unload();
+        }),
+    };
 
     for (auto &thr : th)
         thr.join();
