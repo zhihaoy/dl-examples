@@ -14,7 +14,8 @@ using namespace std::chrono_literals;
 
 int main()
 {
-    auto inst = tlsdemo::plugin<tslogger::singleton>(std::filesystem::current_path() / libname);
+    auto load = [] { return tlsdemo::plugin<tslogger::singleton>(std::filesystem::current_path() / libname); };
+    auto inst = load();
 
     std::thread th[] = {std::thread([&] {
                             inst->get();
@@ -28,4 +29,6 @@ int main()
 
     for (auto &thr : th)
         thr.join();
+
+    load();
 }

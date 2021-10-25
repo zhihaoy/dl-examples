@@ -33,6 +33,16 @@ class memory_logger : public logger
 class memory_logger_singleton : public singleton
 {
   public:
+    memory_logger_singleton()
+    {
+        std::cout << " + process attached\n";
+    }
+
+    ~memory_logger_singleton()
+    {
+        std::cout << " + process detached\n";
+    }
+
     virtual auto get() -> logger & override
     {
         thread_local memory_logger inst;
