@@ -1,3 +1,5 @@
+find_package(Threads REQUIRED)
+
 add_library(tslogger MODULE)
 target_sources(tslogger 
     PUBLIC "tslogger.h"
@@ -15,4 +17,7 @@ target_sources(tlsdemo PRIVATE
     "plugin_traits.h"
     "plugin_traits_$<IF:$<PLATFORM_ID:Windows>,win32,posix>.cpp"
 )
-target_link_libraries(tlsdemo PRIVATE ${CMAKE_DL_LIBS})
+target_link_libraries(tlsdemo PRIVATE
+    Threads::Threads
+    ${CMAKE_DL_LIBS}
+)

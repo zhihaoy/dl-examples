@@ -46,6 +46,12 @@ template <class Factory> class plugin
         return *this;
     }
 
+    void unload()
+    {
+        lib_ = nullptr;
+        obj_ = nullptr;
+    }
+
     auto operator->() const noexcept
     {
         return obj_;
