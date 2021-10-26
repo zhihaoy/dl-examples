@@ -1,5 +1,8 @@
 find_package(Threads REQUIRED)
 
+# application verifier doesn't flag leak in a debug runtime
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
+
 add_library(tslogger MODULE)
 target_sources(tslogger 
     PUBLIC "tslogger.h"
